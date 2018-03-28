@@ -1,0 +1,53 @@
+page-visualisation-du-parc {
+  .logo{
+    height: 100px;
+  }
+  .entete{
+    background: $backgradient;
+  }
+  .rechercher{
+    color:#FFFFFF;
+  }
+  .bar-stable{
+    background: $backgradient;
+  }
+  .header .col {
+    background-color:lightgrey;
+  }
+
+  .col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+  }
+
+  .col:last-child {
+    border-right: solid 1px grey;
+  }
+
+  .row:last-child .col {
+    border-bottom: solid 1px grey;
+  }
+
+  .bouton_ok
+  {
+    background: #00FF00;
+  }
+
+  .bouton_ko
+  {
+    background: #FF0000;
+  }
+  .table_content{
+    background: lightgrey;
+  }
+  .bar{
+    max-width: 50%;
+    margin: auto;
+  }
+  .buttonQuitter{
+    margin-left: 90%;
+  }
+}
+
+

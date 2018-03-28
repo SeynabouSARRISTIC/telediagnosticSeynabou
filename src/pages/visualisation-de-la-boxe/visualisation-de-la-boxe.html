@@ -1,0 +1,39 @@
+<!--
+  Generated template for the VisualisationDeLaBoxePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>VisualisationDeLaBoxe</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>N°{{}}</h1>
+  <div>
+    <h3>Time Start</h3>
+    <h3>Etat Box</h3>
+  </div>
+  <div class="row header" id="tete">
+    <div class="col">Details</div>
+    <div class="col">Device</div>
+    <div class="col">Agence</div>
+    <div class="col">Box</div>
+    <div class="col">Statut</div>
+    <div class="col"></div>
+  </div>
+  <div class="row table_content" *ngFor="let element of Devices">
+    <div class="col" (ngModel)="detail"><button ion-button  (click)="details()">Details</button></div>
+    <div class="col">{{ element.code}}</div>
+    <div class="col">{{ element.name }}</div>
+    <div class="col">{{ element.gatewayId }}</div>
+    <div class="col">{{ element.status }}</div>
+    <div class="col "><button ion-button class="button {{element.activated?'bouton_ok':'bouton_ko'}}" (click)="$event">{{element.activated?'OK':'KO'}}</button></div>
+  </div>
+  <div class="buttonQuitter">
+    <button ion-button (click)="quitterVisu()">Quitter</button>
+  </div>
+</ion-content>

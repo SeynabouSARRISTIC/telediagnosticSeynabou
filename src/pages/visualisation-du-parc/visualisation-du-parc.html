@@ -1,0 +1,47 @@
+
+<ion-header class="entete">
+  <ion-navbar >
+    <ion-title><img alt="logo" width="50" height="100" src="assets/imgs/box-energeasy-connect.jpg"/>Visualisation du Parc</ion-title>
+  </ion-navbar>
+  <div class="entete">
+    <h3 class="rechercher">Rechercher</h3>
+    <ion-searchbar class="bar" (ionInput)="search()" [(ngModel)]="texteRechercher"></ion-searchbar>
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        {{ item }}
+      </ion-item>
+    </ion-list>
+ </div>
+  <div class="entete">
+    <div class="bar-stable">
+      <h3 class="rechercher">{{ nombreUtilisateur }} Utilisateur{{ nombreUtilisateur<=1 ? "":"s"}}</h3>
+    </div>
+  </div>
+</ion-header>
+<ion-content class="entete">
+  <div class="row header" id="tete">
+    <div class="col">Details</div>
+    <div class="col">Code</div>
+    <div class="col">Agence</div>
+    <div class="col">Box</div>
+    <div class="col">Statut</div>
+    <div class="col"></div>
+  </div>
+  <div class="row table_content" *ngFor="let element of bigdata">
+    <div class="col" (ngModel)="detail"><button ion-button  (click)="details()">Details</button></div>
+    <div class="col">{{ element.code}}</div>
+    <div class="col">{{ element.name }}</div>
+    <div class="col">{{ element.gatewayId }}</div>
+    <div class="col">{{ element.status }}</div>
+    <div class="col "><button ion-button class="button {{element.activated?'bouton_ok':'bouton_ko'}}" (click)="$event">{{element.activated?'OK':'KO'}}</button></div>
+  </div>
+  <div class="buttonQuitter">
+    <button ion-button (click)="quitter()">Quitter</button>
+  </div>
+  <!--
+  <div *ngFor="let p of personnes">
+    {{p.nom}} / {{p.prenom}}
+  </div>
+  -->
+</ion-content>
+

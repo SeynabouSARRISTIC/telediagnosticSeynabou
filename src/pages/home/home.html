@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center class="whiteBann">
+      <img alt="logo" width="140" height="140" src="assets/imgs/logo.png" (click)="openModal()">
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="backgroundLogin">
+
+  <br>
+  <div class="fontWhite text_center">
+    <h2>Connexion</h2>
+  </div>
+  <form #loginForm="ngForm"  autocomplete="off">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <div class="fontWhite">
+            Email utilisateur
+          </div>
+          <ion-item>
+            <ion-input placeholder="Email" name="username" id="loginField" (ionChange)="searchLogin(userData.username)"
+                       type="text" required [(ngModel)]="userData.username" #email list="accounts"></ion-input>
+          </ion-item>
+
+          <datalist id="accounts">
+            <option *ngFor="let account of accounts" value="{{account.login}}"></option>
+          </datalist>
+
+          <br>
+          <div class="fontWhite">
+            Mot de passe
+          </div>
+          <ion-item>
+            <ion-input placeholder="Password" name="password" id="passwordField"
+                       type="{{afficherMessage.checked ? 'text' : 'password'}}" required [(ngModel)]="userData.password"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <input id="remember" type="checkbox" [checked]="seSouvenir" (change)="changeState()" >&nbsp;&nbsp;<div class="fontWhite"><label for="remember">Se souvenir de moi</label></div>
+    </ion-row>
+    <br>
+    <ion-row>
+      <input id="show" type="checkbox" (ngModel)="ok" #afficherMessage>&nbsp;&nbsp;<label for="show"><div class="fontWhite" ><label for="show">Afficher le mot de passe</label></div></label>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+      </ion-col>
+    </ion-row>
+  </form>
+  <button ion-button class="submit-btn btnLog" full type="submit" style="height:80px;"
+          [disabled]="!loginForm.form.valid" (click)="login()" >Login
+  </button>
+</ion-content>
